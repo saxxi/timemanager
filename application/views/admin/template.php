@@ -11,11 +11,12 @@
         <?php foreach ($scripts as $script) echo HTML::script($script, NULL, NULL, TRUE), "\n" ?>
         <nav>
             <ul>
-                <?php ?>
-                <li class="active"><?php echo html::anchor('admin', 'Orari educatori') ?></li>
-                <li><?php echo html::anchor('admin/timings_table', 'Tabellone') ?></li>
-                <li><?php echo html::anchor('admin/timings_table', 'Orario Ragazzi') ?></li>
-                <li><a href="#">logout</a></li>
+                <?php foreach($main_menu as $keymenu => $menu){
+                    $li_class = '';
+                    $li_class = $keymenu==$activepage ? 'active' : $keymenu;
+                    ?>
+                    <li class="<?php echo $li_class ?>"><?php echo html::anchor($menu['url'], $menu['title']) ?></li>
+                <?php } ?>
             </ul>
         </nav>  
     </header>

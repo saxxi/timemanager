@@ -13,6 +13,7 @@ class Controller_Admin extends Controller_Template {
 
         parent::before();
         
+        $this->template->activepage = null;
         $this->template->main_menu = array(
             'educators' => array(
                 'title' => 'Orario Educatori',
@@ -55,6 +56,7 @@ class Controller_Admin extends Controller_Template {
     
     public function action_educators(){
         $view = View::factory('admin/educators');
+        $this->template->activepage = 'educators';
         
         $view->educators = ORM::factory('educator')->find_all();
         $view->educators_dd = ORM::factory('educator')->get_for_dropdown();
@@ -66,6 +68,7 @@ class Controller_Admin extends Controller_Template {
     
     public function action_timings_table(){
         $view = View::factory('admin/timings_table');
+        $this->template->activepage = 'timings_table';
         $this->template->content = $view;
     }
     
