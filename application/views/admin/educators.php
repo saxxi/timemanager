@@ -1,5 +1,4 @@
 <section>
-    <h1>Orari educatori</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis tempus turpis vel mollis.
         <br>
         Suspendisse non lacinia felis. Morbi pulvinar, tellus at gravida cursus, diam urna consequat metus.

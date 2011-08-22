@@ -2,7 +2,7 @@
 
 class Model_Educator extends ORM
 {
-    public function get_for_dropdown(){
+    public function get_for_dropdown($startwith = ''){
         return $this->find_all()->as_array('id', 'name');
     }
     

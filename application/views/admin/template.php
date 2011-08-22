@@ -6,7 +6,6 @@
 </head>  
 <body>
     <header>
-        <h1>Page title</h1>  
         <?php foreach ($styles as $style => $media) echo HTML::style($style, array('media' => $media), NULL, TRUE), "\n" ?>
         <?php foreach ($scripts as $script) echo HTML::script($script, NULL, NULL, TRUE), "\n" ?>
         <nav>
@@ -19,6 +18,7 @@
                 <?php } ?>
             </ul>
         </nav>  
+        <h1><?php echo $title ?></h1>
     </header>
     
     <?php echo $content ?>

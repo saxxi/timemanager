@@ -25,7 +25,7 @@ class Controller_Admin extends Controller_Template {
             ),
             'children' => array(
                 'title' => 'Orario Ragazzi',
-                'url' => 'xx'
+                'url' => 'admin/children'
             ),
         );
         
@@ -34,7 +34,7 @@ class Controller_Admin extends Controller_Template {
         $this->template->title = 'Timetable Manager';
         
         $this->template->styles = array(
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css' => 'screen',
             'assets/blueprint/screen.css' => 'screen',
             'assets/blueprint/print.css' => 'print',
             'assets/admin/main.css' => 'screen',
@@ -56,6 +56,7 @@ class Controller_Admin extends Controller_Template {
     
     public function action_educators(){
         $view = View::factory('admin/educators');
+        $this->template->title = "Orario educatori";
         $this->template->activepage = 'educators';
         
         $view->educators = ORM::factory('educator')->find_all();
@@ -68,8 +69,31 @@ class Controller_Admin extends Controller_Template {
     
     public function action_timings_table(){
         $view = View::factory('admin/timings_table');
+        $this->template->title = "Tabellone Gruppo A";
         $this->template->activepage = 'timings_table';
         $this->template->content = $view;
     }
+    
+    public function action_children(){
+        $view = View::factory('admin/children');
+        $this->template->title = "Orario ragazzi";
+        $this->template->activepage = 'children';
+        $this->template->content = $view;
+    }
+    
+    public function action_txtactivities(){
+        $this->auto_render=false;
+        
+        $startwith = Arr::get($_GET, 'startwith', '');
+        $ret_activities = ORM::factory('txtactivity')->ajax_list($startwith);
+        
+        $els = array(
+            "totalResultsCount" => count($ret_activities),
+            "activities" => $ret_activities
+        );
+        gen::ajaxdump($els);
+    }
+    
+    
     
 }

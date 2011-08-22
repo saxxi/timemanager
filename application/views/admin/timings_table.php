@@ -1,6 +1,5 @@
 <section>
     
-    <h2>Il Tabellone</h2>
     <div class="clearfix timetable">
         
         <?php for ($iday=0; $iday < 7; $iday++) { ?>

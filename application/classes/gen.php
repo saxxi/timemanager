@@ -7,7 +7,7 @@ class gen {
     public static function ob_out(){ $content = ob_get_contents(); ob_end_clean(); return $content; }
     // end AUTH FUNCS
     
-    public static function set(&$var, $default)
+    public static function set(&$var, $default='')
     {
         return isset($var) ? $var : $default;
     }
@@ -53,5 +53,17 @@ class gen {
         }
         return $weeks_dd;
     }
+    
+    public static function ajaxdump($els = array()){
+        
+        $callback = gen::set($_GET['callback']);
+        
+        if($callback!=''){
+            echo sprintf("%s(%s);", $callback,json_encode($els));
+        }else{
+            echo json_encode($els);
+        }
+    }
+    
     
 }
