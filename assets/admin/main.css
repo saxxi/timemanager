@@ -1,0 +1,37 @@
+header, section, footer { width:1024px; margin:0 auto 2em; }
+
+header,footer { background:#333; }
+
+header h1 { padding:20px; color:#fff; }
+
+header nav { background:#000305; border-radius:5px 5px 5px 5px; font-size:1.143em; height:40px; line-height:30px; padding:0; text-align:center; }
+
+header nav ul { list-style:none outside none; margin:0 auto; }
+header nav li { display:inline; float:left; margin:0; }
+
+header nav a:link, header nav a:visited { color:#FFFFFF; display:inline-block; height:30px; padding:5px 1.5em; text-decoration:none; }
+
+header nav a:hover, header nav a:active, header nav .active a:link, header nav .active a:visited {
+  background:none repeat scroll 0 0 #C74451; color:#FFFFFF; text-shadow:none !important;
+}
+
+footer p { color:#fff; padding:20px; text-align:center; }
+
+/* app */
+.timetable { background:#ccc; padding-left:5px; }
+
+.dday {
+  width:132px;
+  float:left;
+  margin-right:10px;
+}
+
+.dday h4 { padding-top:5px; margin-bottom:5px; }
+
+.dday .dh { background:#fff; padding:10px; margin-bottom:10px; }
+
+.dday .dh h5, .dday .dh h6, .dday .dh p { line-height:0.9em; }
+
+.dday .dh h5 { margin-bottom:5px; font-size:14px; color:#999; }
+.dday .dh h6 { margin-bottom:10px; color:#666; }
+.dday .dh p { margin-bottom:5px; }
