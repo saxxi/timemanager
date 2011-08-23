@@ -115,7 +115,7 @@ Kohana::modules(array(
 Route::set('default', '(<controller>(/<action>(/<id>)))')
     ->defaults(array(
         'controller' => 'admin',
-        'action'     => 'educators',
+        'action'     => 'educator_timings',
     ));
 
 // Route::set('assets', 'assets');

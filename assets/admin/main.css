@@ -1,4 +1,13 @@
-header, section, footer { width:1024px; margin:0 auto 2em; }
+/* gen */
+
+.toolbtn { font-size:10px; text-decoration:none; }
+
+h2, h2 select { font-size:24px; font-weight:bold; height:26px; }
+h2 select { font-size:18px; }
+h2 select option { font-size:12px; font-weight:normal; }
+
+
+/* siteparts */
 
 header,footer { background:#333; }
 
@@ -19,20 +28,31 @@ footer p { color:#fff; padding:20px; text-align:center; }
 
 
 /* app */
-.timetable { background:#ccc; padding-left:5px; }
+.appform { border:1px solid #333; margin-bottom:10px; padding:20px; } /* TODO: deleteme */
+.appform h3 { margin:10px 0 0; }
+.appform .multisel { height:180px; }
 
-.dday {
-  width:132px;
-  float:left;
-  margin-right:10px;
-}
+.timetable, .acttable { background:#ccc; padding-left:5px; margin-bottom:20px; padding:10px 0; }
+.dday { float:left; }
+.dday .cellhead { height:30px; }
+.dday h4 { margin:0; padding-top:5px; padding-bottom:5px; background:#D3CCAB; text-align:center; border:1px solid #333; }
+.dday .dh, .dday .dhh { background:#fff; border:1px solid #333; }
+.dday .dh:hover, .dday .dhh:hover { background:#F2F0E1; cursor:pointer; }
 
-.dday h4 { padding-top:5px; margin-bottom:5px; }
 
-.dday .dh { background:#fff; padding:10px; margin-bottom:10px; }
+.timetable .dday { width:80px; margin-right:0px; }
+.timetable .cellhead h4 { border-right:none; }
+.dday .dhh { height:10px; text-align:center; font-size:0.9em; border-right:none; }
+.dday .dhh3 { height:21px; }
+.dday .dhh1 { border-bottom:1px solid #ddd; }
+.dday .dhh2 { border-top:none; }
 
-.dday .dh h5, .dday .dh h6, .dday .dh p { line-height:0.9em; }
 
-.dday .dh h5 { margin-bottom:5px; font-size:14px; color:#999; }
-.dday .dh h6 { margin-bottom:10px; color:#666; }
-.dday .dh p { margin-bottom:5px; }
+.acttable .dday { width:132px; margin-right:3px; }
+.acttable .dh { padding:5px; }
+.acttable .dh h5, .acttable .dh h6, .acttable .dh p { line-height:0.9em; }
+.acttable .dh h5 { margin-bottom:5px; font-size:14px; color:#999; }
+.acttable .dh h6 { margin-bottom:10px; color:#666; }
+.acttable .dh p { margin-bottom:5px; }
+
+.dayacts .dhh { background:#E8E3D7; }

@@ -1,8 +1,17 @@
 $(function() {
+    
+    
+    
+    
+    
+    
+    
+    
+    
     $("#txtactivities").autocomplete({
         source: function(request, response) {
             $.ajax({
-                url: "http://192.168.0.8/~adit/timemanager/admin/txtactivities",
+                url: appconf.url_base + "admin/txtactivities",
                 dataType: "jsonp",
                 data: {
                     maxRows: 12,

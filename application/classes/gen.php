@@ -47,7 +47,7 @@ class gen {
             $weeks = gen::get_weeks($year);
             foreach($weeks as $iweek => $week){
                 $id = date('Y').'-'.$iweek; # eg. "2011-41"
-                $weeks_dd[$id] = strftime("%a %d %b", $week['monday'])." - ".strftime("%a %d %b", $week['sunday']);
+                $weeks_dd[$id] = strftime("%A %d %B", $week['monday'])." - ".strftime("%A %d %B", $week['sunday']);
             }
             Cache::instance()->set('weeks_dd_'.$year, $weeks_dd);
         }
@@ -63,6 +63,15 @@ class gen {
         }else{
             echo json_encode($els);
         }
+    }
+    
+    public static function get_conf_el($conf_path, $el){
+        $var = Kohana::$config->load($conf_path);
+        return $var[$el];
+    }
+    
+    public static function get_halfhours_dd(){
+        return array('00' => '00', '30' => '30');
     }
     
     

@@ -5,27 +5,27 @@ class Controller_Admin extends Controller_Template {
     public $template = 'admin/template';
     
     public function before(){
-        $DAY_NAMES = array(0 => "Lunedì", 1 => "Martedì", 2 => "Mercoledì", 3 => "Giovedì", 4 => "Venerdì", 5 => "Sabato", 6 => "Domenica");
-        $DAY_NAMES = array(
-            1 => "Gennaio", 2 => "Febbraio", 3 => "Marzo", 4 => "Aprile", 5 => "Maggio", 6 => "Giugno",
-            7 => "Luglio", 8 => "Agosto", 9 => "Settembre", 10 => "Ottobre", 11 => "Novembre", 12 => "Dicembre"
-        );
-
         parent::before();
         
+        $this->template->appconf = array(
+            'url_base' => url::base(),
+            'l' => substr(I18n::$lang, 0, 2),
+        );
+        
         $this->template->activepage = null;
+        
         $this->template->main_menu = array(
-            'educators' => array(
+            'educator_timings' => array(
                 'title' => 'Orario Educatori',
-                'url' => 'admin/educators'
+                'url' => 'admin/educator_timings'
             ),
-            'timings_table' => array(
+            'activity_timings' => array(
                 'title' => 'Tabellone',
-                'url' => 'admin/timings_table'
+                'url' => 'admin/activity_timings'
             ),
-            'children' => array(
+            'children_timings' => array(
                 'title' => 'Orario Ragazzi',
-                'url' => 'admin/children'
+                'url' => 'admin/children_timings'
             ),
         );
         
@@ -54,30 +54,34 @@ class Controller_Admin extends Controller_Template {
     
     
     
-    public function action_educators(){
-        $view = View::factory('admin/educators');
+    public function action_educator_timings(){
+        $view = View::factory('admin/educator_timings');
         $this->template->title = "Orario educatori";
-        $this->template->activepage = 'educators';
+        $this->template->activepage = 'educator_timings';
         
-        $view->educators = ORM::factory('educator')->find_all();
         $view->educators_dd = ORM::factory('educator')->get_for_dropdown();
-        $view->children_dd = ORM::factory('child')->get_for_dropdown();
+        
+        $view->eductor_id = $this->request->param('id');
         
         // $about_page = $view->render();
         $this->template->content = $view;
     }
     
-    public function action_timings_table(){
-        $view = View::factory('admin/timings_table');
-        $this->template->title = "Tabellone Gruppo A";
-        $this->template->activepage = 'timings_table';
+    public function action_activity_timings(){
+        $view = View::factory('admin/activity_timings');
+        
+        $view->children_dd = ORM::factory('child')->get_for_dropdown();
+        $view->educators_dd = ORM::factory('educator')->get_for_dropdown();
+        
+        $this->template->title = "Tabellone";
+        $this->template->activepage = 'activity_timings';
         $this->template->content = $view;
     }
     
-    public function action_children(){
-        $view = View::factory('admin/children');
+    public function action_children_timings(){
+        $view = View::factory('admin/children_timings');
         $this->template->title = "Orario ragazzi";
-        $this->template->activepage = 'children';
+        $this->template->activepage = 'children_timings';
         $this->template->content = $view;
     }
     
