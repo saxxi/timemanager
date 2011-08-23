@@ -1,4 +1,6 @@
 log/
 logs/
 cache/
+application/config/
 .DS_Store
+.htaccess

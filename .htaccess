@@ -3,7 +3,7 @@ RewriteEngine On
 
 # Installation directory
 # RewriteBase /
-RewriteBase /~adit/timemanager/
+RewriteBase /timemanager/
 
 
 # Protect hidden files from being viewed
